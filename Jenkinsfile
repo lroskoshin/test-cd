@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Checkout') {
+    stage('Build') {
       agent {
         node {
           label 'Nodejs'
@@ -14,7 +14,7 @@ pipeline {
 
       }
       steps {
-        publishChecks()
+        sh 'npm i && npm run build admin'
       }
     }
 
