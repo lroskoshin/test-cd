@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "",
+    "build:default": "pug -O config.js  pages -o ./dist/html -P && rollup -c rollup.config.js",
+    "build:admin": "set ROLE=admin && npm run build:default",
+    "build:user": "set ROLE=user && npm run build:default",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/lroskoshin/test-cd/issues"
   },
-  "homepage": "https://github.com/lroskoshin/test-cd#readme"
+  "homepage": "https://github.com/lroskoshin/test-cd#readme",
+  "dependencies": {
+    "@wessberg/rollup-plugin-ts": "^1.3.14",
+    "pug-cli": "^1.0.0-alpha6",
+    "rollup": "^2.56.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "serve": "^12.0.0"
+  }
 }
